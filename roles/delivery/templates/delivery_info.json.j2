@@ -1,0 +1,29 @@
+{
+    "service": "kafka",
+{% if vpc_net %}
+    "net": "vpc",
+    "info": [
+{% set all_kafka = [] -%}
+{% set kafka_hosts=groups.kafka_servers %}
+{% for host in kafka_hosts -%}
+  {% set kafka_ip = hostvars[host].ansible_host -%}
+  {% set kafka_port = hostvars[host].kafka_port -%}
+  {% set _ = all_kafka.append("
+        {
+            \"address\": \"%s\",
+            \"port\": %s
+        }" % (kafka_ip, kafka_port))%}
+{% endfor -%}
+{% set kafka_info = all_kafka | join(',') -%}
+  {{ kafka_info }}
+    ]
+{% else %}
+    "net": "public",
+    "info": [
+        {
+            "address": "{{ public_ip }}",
+            "port": {{ public_port }}
+        }
+    ]
+{% endif %}
+}

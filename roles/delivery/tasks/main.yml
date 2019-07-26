@@ -1,0 +1,5 @@
+---
+# Generate delivery infor Tasks
+
+- name: Generate delivery information
+  template: src=delivery_info.json.j2 dest=/tmp/delivery_info.json mode=0644 backup=yes

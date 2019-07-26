@@ -1,0 +1,5 @@
+- name: delivery kafka
+  hosts: localhost
+  any_errors_fatal: true
+  roles:
+    - delivery
