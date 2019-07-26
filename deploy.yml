@@ -55,3 +55,7 @@
   any_errors_fatal: true
   roles:
     - kafka
+- name: deploy zabbix-agent
+  hosts: all
+  roles:
+    - zabbix_agent

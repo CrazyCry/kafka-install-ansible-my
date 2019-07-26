@@ -1,0 +1,47 @@
+---
+# tasks file for zookeeper
+
+- name: get facts
+  setup:
+
+- name: load vars
+  include_vars: RedHat.yml
+  when: ansible_os_family == "RedHat"
+
+- name: install repository
+  command: rpm -Uvh "{{ zabbix_repo }}" 
+  args:
+    warn: false
+  ignore_errors: yes
+  register: rpm_result
+
+- name: check result
+  fail:
+    msg: "{{ rpm_result.stderr }}"
+  when: "'OK' not in rpm_result.msg and 'already installed' not in rpm_result.stderr"
+
+- name: clean cache
+  command: yum clean all
+  args:
+    warn: false
+  changed_when: false  
+
+- name: install zabbix_agent
+  yum:
+    name: zabbix-agent
+    state: present
+#  register: install_result
+#  until: "'OK' in install_result or 'already installed' in install_result.results"
+
+- name: create zabbix-agentd.conf file
+  template: src=zabbix_agentd.conf.j2 dest=/etc/zabbix/zabbix_agentd.conf mode=0644 backup=yes
+
+- name: start zabbix-agent
+  service:
+    name: zabbix-agent
+    state: restarted
+
+- name: enable zabbix-agent on boot
+  service:
+    name: zabbix-agent
+    enabled: yes
