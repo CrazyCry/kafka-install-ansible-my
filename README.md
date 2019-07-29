@@ -6,8 +6,8 @@ Ansible is an IT automation tool. It can configure systems, deploy software, and
 Kafka-Ansible is a Kafka cluster deployment tool based on Ansible playbook. You can use the Kafka-Ansible configuration file to set up the cluster topology. Kafka-Ansible enables you to quickly deploy a new Kafka cluster or scale a Kafka cluster.
 
 ## Tutorial
-[English](https://github.com/CrazyCry/kafka-ansible/README.md)
-[简体中文](https://github.com/CrazyCry/kafka-ansible/zh_cn.md)
+[English](https://github.com/CrazyCry/kafka-install-ansible-my/README.md)
+[简体中文](https://github.com/CrazyCry/kafka-install-ansible-my/zh_cn.md)
 
 #### Default Version
 |Name|Version|
