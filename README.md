@@ -7,7 +7,7 @@ Kafka-Ansible is a Kafka cluster deployment tool based on Ansible playbook. You 
 
 ## Tutorial
 [English](https://github.com/CrazyCry/kafka-install-ansible-my/README.md)
-[简体中文](https://github.com/CrazyCry/kafka-install-ansible-my/zh_cn.md)
+[简体中文](https://github.com/CrazyCry/kafka-install-ansible-my/blob/master/zh_cn.md)
 
 #### Default Version
 |Name|Version|
