@@ -3,7 +3,9 @@
 ## 概述
 Ansible 是一款自动化运维工具。它可以用来配置系统，部署软件，或者编排高级的 IT 任务，例如滚动更新。
 
-Kafka-Ansible 是基于 Ansible playbook 功能编写的集群部署工具。你可以通过 Kafka-Ansible 配置文件来设置集群拓扑。使用 Kafka-Ansible 可以快速部署一个新的 Kafka 集群或扩容集群。
+Kafka-Ansible 是基于 Ansible playbook 功能编写的集群部署工具。你可以通过 Kafka-Ansible 配置文件来设置集群拓扑。使用 Kafka-Ansible 可以快速部署一个新的 Kafka 集群或扩容集群。并安装zabbix-agent 4.0.10
+
+被安装的操作系统上需要有`speed`用户，并且可以无密码切换root，当然用户speed可以更改，在`./inventory.ini`中修改ansible用户`ansible_user = $YOUR_USERNAME`
 
 #### 默认版本
 |名字|版本|
